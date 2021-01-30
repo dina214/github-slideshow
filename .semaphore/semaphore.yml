@@ -11,12 +11,6 @@ blocks:
         - name: 'Job #1'
           commands:
             - checkout
-  - name: 'Block #2'
-    task:
-      jobs:
-        - name: 'Job #1'
-          commands:
-            - Sleep 17273748484848484848
   - name: 'Block #3'
     task:
       jobs:

